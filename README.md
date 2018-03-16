@@ -19,11 +19,11 @@ If you are in file mode, the reading overwrite the memory were was the pointer, 
 
 Have fun!
 
-##Compilation
+## Compilation
     g++ ABrainFuck.cc -o AbrainFuck
-##Usage
+## Usage
         ./ABrainFuck myscript.abf
-##example:
+## example:
 
 
     preparation of the stdout address:
