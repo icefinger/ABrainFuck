@@ -12,11 +12,18 @@ to open a file (/dev/stdin for instance), you can use the switch operator '~'. I
 Once open, you are in "file mode" the '.' operation copy from the file to the memory, and the ',' operation copy from the memory to the file. To switch back to "memory mode", reuse the '~' operator.
 
 When you read/write a file in memory mode, the file pointer is automatically shifted by one.
+
 When you read/write the memory in file mode, the memory pointer is automatically shifted by one.
-If you are in file mode, the reading overwrite the memory were was the pointer, so the file address. I you switch back to memory, you can shift the memory pointer and still get data from the file with the operator ','. But to shift the file pointer, you need to reopen it.
 
+If you are in file mode, the reading overwrite the memory were was the pointer, so the file address. If you switch back to memory, you can shift the memory pointer and still get data from the file with the operator ','. But to shift the file pointer by a custom value, you need to reopen it.
 
-example:
+Have fun!
+
+##Compilation
+    g++ ABrainFuck.cc -o AbrainFuck
+##Usage
+        ./ABrainFuck myscript.abf
+##example:
 
 
     preparation of the stdout address:
@@ -169,7 +176,7 @@ example:
     >
 
     return to the begining
-    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< it cannot be inferior of 0 in this VM
+    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< it cannot be inferior to 0 in this VM
     go to stdin address
     >>>>>>>>>>>>
     open it, take 4 characters, in file mode it overwrite the address string, go back in memory mode
