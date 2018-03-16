@@ -1,4 +1,4 @@
-
+#include <unistd.h>
 #include <cstdlib>
 
 #include <fstream>
@@ -13,15 +13,18 @@ class Interpretor
 {
   Interpretor ()
   {
-    fFile.open("/dev/stdout", ios_base::in|ios_base::out);
-    if(!fFile.is_open())
+    fFile =fopen("/dev/stdout", "r+");
+    if(!fFile)
       {
         throw ("initialization error: /dev/stdout cannot be open");
       }
     fMemory.resize (1024);
 
   }
-  ~Interpretor () {}
+  ~Interpretor ()
+  {
+    fclose(fFile);
+  }
 
   static Interpretor* fInstance;
 
@@ -33,7 +36,7 @@ class Interpretor
   int fBFDataPos=0;
   bool fSwitchPos=0;
 
-  fstream fFile;
+  FILE *fFile;
   bool fDebug;
 
 public:
@@ -50,7 +53,7 @@ public:
       {
         if (fInstance->fDebug == true)
           {
-            cout << "Interpreting " << fInstance->fBFData[fInstance->fBFDataPos] << endl;
+            clog << "Interpreting " << fInstance->fBFData[fInstance->fBFDataPos] << endl;
           }
         fInstance->DecideNext ();
       }
@@ -127,9 +130,9 @@ public:
           c++;
         else
           c--;
-        if (fFile.tellg () != -1)
-          fFile.seekg(fFilePos);
-        fFile.put(c);fFile.flush ();
+        if (ftell (fFile) != -1)
+          fseek(fFile,fFilePos,SEEK_SET);
+        fputc(c,fFile);fflush(fFile);
       }
 
   }
@@ -154,11 +157,22 @@ public:
     if (fDebug)
       clog << "switch to file " << filename << endl;
 
-    fFile.close ();
-    fFile.open(filename.data (), ios_base::in|ios_base::out);
-    if (!fFile.is_open ())
-      fFile.open(filename.data (), ios_base::in|ios_base::out|ios_base::trunc);
-    if (!fFile.is_open ())
+    fclose (fFile);
+    fFile==0;
+    if (!access(filename.data (), W_OK) &&
+        !access(filename.data (), R_OK))
+      {
+        fFile=fopen(filename.data (),"r+");
+      }
+    else if (!fFile && !access(filename.data (), W_OK))
+      {
+        fFile=fopen(filename.data (),"w+");
+      }
+    else if (!access(filename.data (), R_OK))
+      {
+        fFile=fopen(filename.data (),"r");
+      }
+    if (!fFile)
       {
         string error="Cannot open file";
         throw (error+filename);
@@ -169,53 +183,52 @@ public:
 
   char GetFileByte ()
   {
-    char c;
-    if (fFile.tellg() != -1)
-      fFile.seekg(fFilePos);
-    fFile.get (c);
+    unsigned char c;
+    if (ftell(fFile) != -1)
+      fseek(fFile,fFilePos,SEEK_SET);
+    c=fgetc (fFile);
     return c;
   }
 
   int PutMemToFile ()
   {
-    if (fFile.tellp () != -1)
+    if (ftell (fFile) != -1)
       {
-        fFile.seekp(fFilePos);
+        fseek(fFile,fFilePos,SEEK_SET);
 
-        if (fFile.tellp () != -1 &&
+        /*        if (ftell (fFile) != -1 &&
             (fFile.rdstate() & fstream::eofbit) != 0)
           {
             fFile.putback (fMemory[fMemoryPos]);
           }
-        else
-          {
-            fFile.put (fMemory[fMemoryPos]);fFile.flush ();
-          }
+        */
+
+        fputc (fMemory[fMemoryPos],fFile);fflush (fFile);
+
       }
     else
       {
-        fFile.put (fMemory[fMemoryPos]); fFile.flush ();
+        fputc (fMemory[fMemoryPos],fFile); fflush (fFile);
       }
 
   }
   int PutFileToMem ()
   {
     char tmpc;
-        if (fFile.tellp () != -1)
+        if (ftell (fFile) != -1)
           {
-            fFile.seekg(fFilePos);
+            fseek(fFile,fFilePos,SEEK_SET);
 
-            if ((fFile.rdstate() & fstream::eofbit) != 0)
-              {
-                fFile.get (tmpc);
-              }else
-              tmpc=0;
+            //if ((fFile.rdstate() & fstream::eofbit) != 0)
+
+            tmpc=fgetc (fFile);
+
           }
         else
           {
-            fFile.get (tmpc); fFile.ignore ();
+            tmpc=fgetc (fFile);
             if (fDebug)
-              cout << "->value;pos " << int(fMemory[fMemoryPos])<<";"<<fMemoryPos << endl;
+              clog << "->value;pos " << int(fMemory[fMemoryPos])<<";"<<fMemoryPos << endl;
           }
         fMemory[fMemoryPos]=(*(unsigned char*)(&tmpc));
   }
@@ -319,7 +332,7 @@ Interpretor* Interpretor::fInstance=0;
 
 int main (int argc, char** argv)
 {
-  if (argc != 2)
+  if (argc < 2)
     {
       cerr << "error: need input file" << endl;
       return 1;
@@ -332,6 +345,9 @@ int main (int argc, char** argv)
       cerr << "Can't open file" << endl;
       return 1;
     }
+  bool debug=false;
+  if (argc > 2)
+    debug=true;
 
-  return Interpretor::Interpret (finput);
+  return Interpretor::Interpret (finput,debug);
 }
