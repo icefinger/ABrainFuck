@@ -17,6 +17,8 @@ If you are in file mode, the reading overwrite the memory were was the pointer, 
 
 
 example:
+
+
     preparation of the stdout address:
 
     /
