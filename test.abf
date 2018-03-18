@@ -243,14 +243,98 @@ newline
 ++++++++++
 .
 
+
 return to the begining
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-~~
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+[
+moving to stdin, and open it
 >>>>>>>>>>>>
->>>>>>>>>>>
-
-~.>.>.>.>.>.>.>.>.>.>~
-
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 ~~
-.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>
+moving to random memory space, read 5 times, remove
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+,,,,[-]
+return to the begining
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+moving to stdin
+>>>>>>>>>>>>
+moving to uptime
+>>>>>>>>>>>
+open
+~~
+shift memory to save the time, cleaning the space except the 5 first
+20 to get space
+>>>>>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]
+<<<<<<<<<<<<<<<<<<
+
+get the data (need loops to stop at the dot)
+
+first loop, looking for the dot
+[
+,
+>[-]< clean a bit
+>>+++[>++++[<<++++>>-]<-]<-- create dot character on next
+[-<->] substract it from the previous char
+>+< increase counter
+< shit to it and check if it 0
+]
+>>--- decrease the counter to take 2 num before the dot
+reopen the file:
+return to the begining
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+moving to stdin
+>>>>>>>>>>>>
+moving to uptime
+>>>>>>>>>>>
+open
+~~
+shift memory to the same zone
+20 to get space
+>>>>>>>>>>>>>>>>>>
+read first characters and clean mem
+>>
+[
+<,[-]>
+]
+<< go back
+read it for real
+,>,>
+[-]>[-]>[-]<< clean a bit
+prepare the 0 ascii value
+>>+++[>++++[<<++++>>-]<-]<
+[-<->] remove it
+>>+++[>++++[<<++++>>-]<-]<
+[-<<->>] remove it
+<<<++++++++++ prepare the 10 multiplicator
+[>[<<+<+>>>-]<<[>>+<<-]>-]>[-]<<[-]< do the multiplication and go on result
+>>>>[-<<<<+>>>>]<<<< add the units to the result to get the total time
+
+Move it to one of the first reserved memory
+[-<<<<<<<<<<<<<<+>>>>>>>>>>>>>>]
+<<<<<<<<<<<<<<<
+<<
+<[-]<[-]<[-]<[-]++++++[>++++[>++++++++++<-]<-]<-]>>> prepare memory for division 240 bpm division
+>[-]>[-]>[-]>[-]>[-]<<<<<<<<
+do subtraction with previous result
+[->>+>>+<<<<] copy
+>>>>[-<<+>>] shift
+<<[->-<] remove
+>[-<+>]< shift
+
+<< do division
+[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<]>>>> divmod, 0 n d-n%d n%d n/d. The final result is on 21.
+
+going back to stdout
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+~~
+moving to stdin
+>>>>>>>>>>>>
+moving to uptime
+>>>>>>>>>>>
+moving to memory space value and print it (still need ascii conversion)
+>>.
+return to the begining, never at 0, infinite loop
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+]
+
+print the full memory
+.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>

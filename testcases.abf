@@ -1,0 +1,13 @@
+addition should print A
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.
+soustraction print 0
+-----------------
+.
+
+empty loop should not block
+[-][]
+
+shift and loop print A
+>>++++[>++++[<<++++>>-]<-]<+
+.

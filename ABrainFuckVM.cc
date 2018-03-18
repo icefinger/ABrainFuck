@@ -131,7 +131,8 @@ public:
         else
           c--;
         if (ftell (fFile) != -1)
-          fseek(fFile,fFilePos,SEEK_SET);
+          if (fseek(fFile,fFilePos,SEEK_SET))
+            return 0;
         fputc(c,fFile);fflush(fFile);
       }
 
@@ -183,10 +184,12 @@ public:
 
   char GetFileByte ()
   {
-    unsigned char c;
+    unsigned char c=0;
     if (ftell(fFile) != -1)
-      fseek(fFile,fFilePos,SEEK_SET);
-    c=fgetc (fFile);
+      if (fseek(fFile,fFilePos,SEEK_SET))
+        return 0;
+    if (!feof(fFile))
+      c=fgetc (fFile);
     return c;
   }
 
@@ -194,7 +197,8 @@ public:
   {
     if (ftell (fFile) != -1)
       {
-        fseek(fFile,fFilePos,SEEK_SET);
+        if (fseek(fFile,fFilePos,SEEK_SET))
+          return 0;
 
         /*        if (ftell (fFile) != -1 &&
             (fFile.rdstate() & fstream::eofbit) != 0)
@@ -214,19 +218,23 @@ public:
   }
   int PutFileToMem ()
   {
-    char tmpc;
+    char tmpc=0;
         if (ftell (fFile) != -1)
           {
-            fseek(fFile,fFilePos,SEEK_SET);
 
+            if (fseek(fFile,fFilePos,SEEK_SET))
+              return 0;
             //if ((fFile.rdstate() & fstream::eofbit) != 0)
-
-            tmpc=fgetc (fFile);
+            if (!feof(fFile))
+              tmpc=fgetc (fFile);
+            if (fDebug)
+              clog << "->value;pos " << int(fMemory[fMemoryPos])<<";"<<fMemoryPos << endl;
 
           }
         else
           {
-            tmpc=fgetc (fFile);
+            if (!feof(fFile))
+              tmpc=fgetc (fFile);
             if (fDebug)
               clog << "->value;pos " << int(fMemory[fMemoryPos])<<";"<<fMemoryPos << endl;
           }
@@ -289,6 +297,32 @@ public:
 
   }
 
+  int unwind ()
+  {
+    bool MemOrFile = GetIsMemOrFile ();
+    if ((MemOrFile && fMemory[fMemoryPos] != 0) ||
+        (!MemOrFile && GetFileByte () != 0))
+      {
+        return 0;
+      }
+
+    int parCounter=1;
+
+    while (parCounter>0 && fBFDataPos < fBFData.size ())
+      {
+        if (fBFData[fBFDataPos] == '[' )
+          parCounter++;
+        else if (fBFData[fBFDataPos] == ']')
+          parCounter--;
+        fBFDataPos++;
+      }
+
+    if (fBFDataPos > fBFData.size ())
+      throw ("syntax error, ] missing.");
+    return 0;
+
+  }
+
   int DecideNext ()
   {
     return Decide (fBFData[fBFDataPos++]);
@@ -305,6 +339,7 @@ public:
         return ShiftMemPos ('>');
         break;
       case '[':
+        return unwind ();
         break;
       case ']':
         return rewind ();
