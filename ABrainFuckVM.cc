@@ -159,24 +159,34 @@ public:
       clog << "switch to file " << filename << endl;
 
     fclose (fFile);
-    fFile==0;
+    fFile=0;
     if (!access(filename.data (), W_OK) &&
         !access(filename.data (), R_OK))
       {
+        if (fDebug)
+          clog << "opening in rw"<< endl;
         fFile=fopen(filename.data (),"r+");
       }
     else if (!fFile && !access(filename.data (), W_OK))
       {
+        if (fDebug)
+          clog << "opening in rw"<< endl;
         fFile=fopen(filename.data (),"w+");
       }
     else if (!access(filename.data (), R_OK))
       {
+        if (fDebug)
+          clog << "opening in rw"<< endl;
         fFile=fopen(filename.data (),"r");
       }
     if (!fFile)
       {
-        string error="Cannot open file";
-        throw (error+filename);
+        fFile=fopen(filename.data (),"w");
+        if (!fFile)
+          {
+            string error="Cannot open file";
+            throw (error+filename);
+          }
       }
     fFilePos=0;
     fSwitchPos=1;
@@ -384,5 +394,14 @@ int main (int argc, char** argv)
   if (argc > 2)
     debug=true;
 
-  return Interpretor::Interpret (finput,debug);
+  int ToReturn;
+
+  try {
+    ToReturn=Interpretor::Interpret (finput,debug);
+  }
+  catch (string e)
+    {
+      cerr << e<<endl;
+    }
+  return ToReturn;
 }
