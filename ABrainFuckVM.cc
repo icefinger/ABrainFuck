@@ -167,24 +167,21 @@ public:
           clog << "opening in rw"<< endl;
         fFile=fopen(filename.data (),"r+");
       }
-    else if (!fFile && !access(filename.data (), W_OK))
-      {
-        if (fDebug)
-          clog << "opening in rw"<< endl;
-        fFile=fopen(filename.data (),"w+");
-      }
     else if (!access(filename.data (), R_OK))
       {
         if (fDebug)
-          clog << "opening in rw"<< endl;
+          clog << "opening in r only"<< endl;
         fFile=fopen(filename.data (),"r");
       }
     if (!fFile)
       {
-        fFile=fopen(filename.data (),"w");
+        if (fDebug)
+          clog << "create new file in rw" << endl;
+
+        fFile=fopen(filename.data (),"w+");
         if (!fFile)
           {
-            string error="Cannot open file";
+            string error="Cannot open or create file";
             throw (error+filename);
           }
       }
