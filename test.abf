@@ -73,7 +73,7 @@ t
 [<<+++++>>-]<-]
 <---------.
 
-\0
+NULL
 >
 
 preparation of the stdin address
@@ -144,7 +144,7 @@ n
 [<<+++++++++++>>-]<-]
 <.
 
-\0
+NULL
 >
 
 preparation of the uptime file address
@@ -235,7 +235,7 @@ e
 [<<++++>>-]<-]
 <+.
 
-\0
+NULL
 >[-]
 
 newline
@@ -247,40 +247,61 @@ newline
 return to the begining
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 [
-moving to stdin, and open it
+moving to stdin and open it
 >>>>>>>>>>>>
 ~~
-moving to random memory space, read 5 times, remove
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+moving to random memory space read 5 times remove
+#
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 ,,,,[-]
+#
 return to the begining
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~.
 moving to stdin
 >>>>>>>>>>>>
 moving to uptime
 >>>>>>>>>>>
+#
 open
 ~~
-shift memory to save the time, cleaning the space except the 5 first
+shift from the file names
+>>>>>>>>>>>>>>>>>>>>
+#
+save the time (cleaning a bit first)
 20 to get space
->>>>>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]
-<<<<<<<<<<<<<<<<<<
+
+[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]
+
+<<<<<<<<<<<<<
+#
 
 get the data (need loops to stop at the dot)
 
-first loop, looking for the dot
+first loop looking for the dot
++
 [
 ,
->[-]< clean a bit
+#
+>[-]>[-]>[-]<<< clean a bit
+#
 >>+++[>++++[<<++++>>-]<-]<-- create dot character on next
+#
 [-<->] substract it from the previous char
->+< increase counter
+#
+>>>+<<< increase counter
+#
 < shit to it and check if it 0
+#
+
 ]
->>--- decrease the counter to take 2 num before the dot
+#
+>>>>--- decrease the counter to take 2 num before the dot
+#
 reopen the file:
 return to the begining
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#
+
 moving to stdin
 >>>>>>>>>>>>
 moving to uptime
@@ -289,41 +310,57 @@ open
 ~~
 shift memory to the same zone
 20 to get space
->>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>
+#
 read first characters and clean mem
->>
+>>>>
+#
 [
-<,[-]>
+<,[-]>-
 ]
 << go back
 read it for real
 ,>,>
-[-]>[-]>[-]<< clean a bit
+#
+
 prepare the 0 ascii value
 >>+++[>++++[<<++++>>-]<-]<
-[-<->] remove it
->>+++[>++++[<<++++>>-]<-]<
-[-<<->>] remove it
+[-<+>]<
+#
+[-<-<->>]remove it
+#
 <<<++++++++++ prepare the 10 multiplicator
+#
 [>[<<+<+>>>-]<<[>>+<<-]>-]>[-]<<[-]< do the multiplication and go on result
+#
 >>>>[-<<<<+>>>>]<<<< add the units to the result to get the total time
+#
+go to current copy current to new
+<<<<<
+#
+copy result to new cleaning first
+>[-]<
+[->+<]
+#
+copy new to current
+>>>>>[-<<<<<+>>>>>]<<<<<
+#
+do subtraction far enough for the divmod with conservation
+[->>>>>>+>+<<<<<<<]>>>>>>[-<<<<<<+>>>>>>]
+<<<<<+++
+[->>>>+>+<<<<<]>>>>[-<<<<+>>>>]>
+#
+[->-<]
+#
+<---------------- prepare memory for division 240 bpm division
+#
+[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d-n%d n%d n/d
 
-Move it to one of the first reserved memory
-[-<<<<<<<<<<<<<<+>>>>>>>>>>>>>>]
-<<<<<<<<<<<<<<<
-<<
-<[-]<[-]<[-]<[-]++++++[>++++[>++++++++++<-]<-]<-]>>> prepare memory for division 240 bpm division
->[-]>[-]>[-]>[-]>[-]<<<<<<<<
-do subtraction with previous result
-[->>+>>+<<<<] copy
->>>>[-<<+>>] shift
-<<[->-<] remove
->[-<+>]< shift
+#
+[-]>[-]>[-]>[-]<<<<< clean a bit then organize rate current previous at the begining of the mem
+#
 
-<< do division
-[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<]>>>> divmod, 0 n d-n%d n%d n/d. The final result is on 21.
-
-going back to stdout
+going back to stdout and open
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 ~~
 moving to stdin
@@ -331,9 +368,11 @@ moving to stdin
 moving to uptime
 >>>>>>>>>>>
 moving to memory space value and print it (still need ascii conversion)
->>.
-return to the begining, never at 0, infinite loop
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>>>>.
+#
+return to the begining never at 0 infinite loop
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#\
 ]
 
 print the full memory
