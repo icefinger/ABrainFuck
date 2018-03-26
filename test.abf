@@ -347,15 +347,14 @@ copy new to current
 #
 do subtraction far enough for the divmod with conservation
 [->>>>>>+>+<<<<<<<]>>>>>>[-<<<<<<+>>>>>>]
-<<<<<+++
+<<<<<
 [->>>>+>+<<<<<]>>>>[-<<<<+>>>>]>
 #
 [->-<]
 #
 <---------------- prepare memory for division 240 bpm division
 #
-[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d-n%d n%d n/d
-
+[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d minus n%d n%d n/d
 #
 [-]>[-]>[-]>[-]<<<<< clean a bit then organize rate current previous at the begining of the mem
 #
@@ -368,12 +367,93 @@ moving to stdin
 moving to uptime
 >>>>>>>>>>>
 moving to memory space value and print it (still need ascii conversion)
->>>>>>>>>>>>>>>>>>>>>>>.
+>>>>>>>>>>>>>
+.
+>>>>>>>>>>
 #
+to print it need modulos 10 and 100
+prepare the 100 div
+
+check further if it s useful first of all copy
+#
+[->>>>>>>>+>+<<<<<<<<<]>>>>>>>>[-<<<<<<<<+>>>>>>>>]
+#
+create the 100
+
+>>
+>+++++
+[>+++++
+[<<++++>>-]<-]<
+<<
+#
+check if the value is bigger than 100 put the 0 or 1 on the current position
+z x y temp0 temp1
+^
+>+++++>++++<<
+
+
+>>>[-]>[-]<<<<[-]
+>[>>+
+<[->[-]>+<<]
+>[-<<<+>>>]
+>[-<<+>>]
+<<-<-]
+clean
+>[-]>[-]<<<
+
+#
+do it only if is not 0
+[
+<<<<<<
+
+>+++++
+[>+++++
+[<<++++>>-]<-]
+<<<
+#
+[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d minus n%d n%d n/d
+#
+>>>>>>
+#
++++[>++++[<<++++>>-]<-]<
+#
+[-<+>]<
+
+. print it
+#
+>>>>
+
+#
+]
+<<<<<<
+[-] put it to 0
+++++++++++<< put it to 10
+#
+[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d minus n%d n%d n/d
+#
+>>>>>
+#
+>>+++[>++++[<<++++>>-]<-]<
+[-<+>]<
+#
+[-<+>]<
+. print it
+
+
+do the last
+[-]
+#
+>>+++[>++++[<<++++>>-]<-]<
+[-<<+>>]<
+
+<.
+#
+[-]<[-]<[-]<[-]<[-]<[-]
+#
+<<<<<<<<<<. newline
+#
+
 return to the begining never at 0 infinite loop
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-#\
-]
 
-print the full memory
-.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>.>
+]
