@@ -5,6 +5,7 @@ The advanced brainfuck allows a new great feature: it can open files!
 
 In unix-like system, it means you can manage stdin stdout but also any files read/write, which is great! you can do a lot of things, such as read the /dev/random to get random numbers, or /proc/driver/rtc to get a time!
 
+## Brief documentation
 the operators are mostly the same, just an important difference with ',' and '.': it does not access the stdin, but the current open file (by default stdout, so ',' does nothing).
 
 to open a file (/dev/stdin for instance), you can use the switch operator '~'. It will open the file with the address corresponding to the string starting at the current memory pointer position (which should be ended by \0).
