@@ -1,521 +1,478 @@
-preparation of the stdout address:
-
-/
->+++
-[>+++
-[<<+++++>>-]<-]
-<++.
-
-d
->
->+++++
-[>+++++
-[<<++++>>-]<-]
-<.
-
-e
->
->+++++
-[>+++++
-[<<++++>>-]<-]
-<+.
-
-v
->
->++++
-[>+++++
-[<<++++++>>-]<-]
-<--.
-
-/
->
->+++
-[>+++
-[<<+++++>>-]<-]
-<++.
-
-s
->
->+++++
-[>+++++
-[<<+++++>>-]<-]
-<----------.
-
-t
-[>+>+<<-]
->>[-<<+>>]<+.
-
-d
->
->+++++
-[>+++++
-[<<++++>>-]<-]
-<.
-
-o
->
->++++
-[>+++++
-[<<++++++>>-]<-]
-<---------.
-
-u
->
->++++
-[>+++++
-[<<++++++>>-]<-]
-<---.
-
-t
->
->+++++
-[>+++++
-[<<+++++>>-]<-]
-<---------.
-
-NULL
->
-
-preparation of the stdin address
-/
->
->+++
-[>+++
-[<<+++++>>-]<-]
-<++.
-
-d
->
->+++++
-[>+++++
-[<<++++>>-]<-]
-<.
-
-e
->
->+++++
-[>+++++
-[<<++++>>-]<-]
-<+.
-
-v
->
->++++
-[>+++++
-[<<++++++>>-]<-]
-<--.
-
-/
->
->+++
-[>+++
-[<<+++++>>-]<-]
-<++.
-
-s
->
->+++++
-[>+++++
-[<<+++++>>-]<-]
-<----------.
-
-t
-[>+>+<<-]
->>[-<<+>>]<+.
-
-d
->
->+++++
-[>+++++
-[<<++++>>-]<-]
-<.
-
-i
->
->++++
-[>+++++
-[<<+++++>>-]<-]
-<+++++.
-
-n
->
->++
-[>+++++
-[<<+++++++++++>>-]<-]
-<.
-
-NULL
->
-
-preparation of the uptime file address
-
-/
->
->+++
-[>+++
-[<<+++++>>-]<-]
-<++.
-
-p
->
->++++
-[>+++++
-[<<++++++>>-]<-]
-<--------.
-
-r
->
->+++++
-[>+++++
-[<<+++++>>-]<-]
-<-----------.
-
-o
->
->++++
-[>+++++
-[<<++++++>>-]<-]
-<---------.
-
-c
->
->+++++
-[>+++++
-[<<++++>>-]<-]
-<-.
-
-/
->
->+++
-[>+++
-[<<+++++>>-]<-]
-<++.
-
-
-u
->
->++++
-[>+++++
-[<<++++++>>-]<-]
-<---.
-
-p
->
->++++
-[>+++++
-[<<++++++>>-]<-]
-<--------.
-
-t
->
->+++++
-[>+++++
-[<<+++++>>-]<-]
-<---------.
-
-i
->
->++++
-[>+++++
-[<<+++++>>-]<-]
-<+++++.
-
-m
->
->++
-[>+++++
-[<<+++++++++++>>-]<-]
-<-.
-
-
-e
->
->+++++
-[>+++++
-[<<++++>>-]<-]
-<+.
-
-NULL
->[-]
-
-newline
->
-++++++++++
-.
-
-
-return to the begining
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-[
-moving to stdin and open it
->>>>>>>>>>>>
-~~
-moving to random memory space read 4 times remove
-
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-,,,,[-]
-
-return to the begining
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
-moving to stdin
->>>>>>>>>>>>
-moving to uptime
->>>>>>>>>>>
-
-open
-~~
-shift from the file names
->>>>>>>>>>>>>>>>>>>>
-
-save the time (cleaning a bit first)
-20 to get space
-
-[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]
-
-<<<<<<<<<<<<<
-
-
-get the data (need loops to stop at the dot)
-
-first loop looking for the dot
-+
-[
-,
-
->[-]>[-]>[-]<<< clean a bit
-
->>+++[>++++[<<++++>>-]<-]<-- create dot character on next
-
-[-<->] substract it from the previous char
-
->>>+<<< increase counter
-
-< shit to it and check if it 0
-
-
-]
-
->>>>--- decrease the counter to take 2 num before the dot
-
-reopen the file:
-return to the begining
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-
-moving to stdin
->>>>>>>>>>>>
-moving to uptime
->>>>>>>>>>>
-open
-~~
-shift memory to the same zone
-20 to get space
->>>>>>>>>>>>>>>>>>>>
-
-read first characters and clean mem
->>>>
-
-[
-<,[-]>-
-]
-<< go back
-read it for real
-,>,>
-
-
-prepare the 0 ascii value
->>+++[>++++[<<++++>>-]<-]<
-[-<+>]<
-
-[-<-<->>]remove it
-
-<<<++++++++++ prepare the 10 multiplicator
-
-[>[<<+<+>>>-]<<[>>+<<-]>-]>[-]<<[-]< do the multiplication and go on result
-
->>>>[-<<<<+>>>>]<<<< add the units to the result to get the total time
-
-go to current copy current to new
-<<<<<
-
-copy result to new cleaning first
->[-]<
-[->+<]
-
-copy new to current
->>>>>[-<<<<<+>>>>>]<<<<<
-
-do subtraction far enough for the divmod with conservation
-[->>>>>>+>+<<<<<<<]>>>>>>[-<<<<<<+>>>>>>]
-<<<<<
-[->>>>+>+<<<<<]>>>>[-<<<<+>>>>]>
-
-[->-<]
-
-<---------------- prepare memory for division 240 bpm division
-
-[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d minus n%d n%d n/d
-
-[-]>[-]>[-]>[-]<<<<< clean a bit then organize rate current previous at the begining of the mem
-
-
-going back to stdout and open
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-~~
-moving to stdin
->>>>>>>>>>>>
-moving to uptime
->>>>>>>>>>>
-moving to memory space value and print it (still need ascii conversion)
->>>>>>>>>>>>>
-
->>>>>>>>>>
-
-to print it need modulos 10 and 100
-prepare the 100 div
-
-check further if it s useful first of all copy
-
-
-[->>>>>>>>+>+<<<<<<<<<]>>>>>>>>[-<<<<<<<<+>>>>>>>>]
-
-
-create the 100
->>
->+++++
-[>+++++
-[<<++++>>-]<-]<
-<<
-
-check if the value is bigger than 100 put the 0 or 1 on the current position
-z x y temp0 temp1
-^
-
-
-
->>>[-]>[-]<<<<[-]
->[>>+
-<[->[-]>+<<]
->[-<<<+>>>]
->[-<<+>>]
-<<-<-]
-clean
->[-]>[-]<<<
-
-
-do it only if is not 0
-[
-<<<<<<
-
->+++++
-[>+++++
-[<<++++>>-]<-]
-<<<
-
-[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d minus n%d n%d n/d
-
->>>>>>
-
-+++[>++++[<<++++>>-]<-]<
-
-[-<+>]<
-
-. print it
-
-clean
-[-]<<[-]<[-]
-
-copy the modulo
-
->>[-<<<+>>>]
-
->>>>>
-
-[-]
-
-]
-
-
-
-do the same for 10
-<<<<<<<
-
-
-<[->>>>>>>+>+<<<<<<<<]>>>>>>>[-<<<<<<<+>>>>>>>]
-
-
-create the 10
->>++++++++++<<
-
-check if the value is bigger than 10 put the 0 or 1 on the current position
-z x y temp0 temp1
-^
-
-
-
->>>[-]>[-]<<<<[-]
->[>>+
-<[->[-]>+<<]
->[-<<<+>>>]
->[-<<+>>]
-<<-<-]
-
-clean
->[-]>[-]<<<
-
-
-do it only if is not 0
-[
-[-]
-<<<<<
-
-++++++++++<<
-
-[->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d minus n%d n%d n/d
-
->>>>>>
-
-+++[>++++[<<++++>>-]<-]<
-
-[-<+>]<
-
-. print it
-
-clean
-[-]<<[-]<[-]
-
-copy the modulo
->>[-<<<+>>>]
-
->>>>>
-
-]
-
-
-<<<<<<
-
-+++[>++++[<<++++>>-]<-]<
-
-
-[-<+>]<
-
-
-. print it
-[-]
-
-clean
-[-]
-
-write BMP
-++++++++[>++++<-]>.[-]#++++++[>+++++++++++<-]>.[-]+++++++[>+++++++++++<-]>.[-]++++++++[>++++++++++<-]>.[-]
-new line
-#
-<<<<<<<<<<<<<<.
-#
-
-
-
-return to the begining never at 0 infinite loop
-<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-]
+    preparation of the stdout address:
+    /
+    >+++
+    [>+++
+    [<<+++++>>-]<-]
+    <++.
+
+    d
+    >
+    >+++++
+    [>+++++
+    [<<++++>>-]<-]
+    <.
+
+    e
+    >
+    >+++++
+    [>+++++
+    [<<++++>>-]<-]
+    <+.
+
+    v
+    >
+    >++++
+    [>+++++
+    [<<++++++>>-]<-]
+    <--.
+
+    /
+    >
+    >+++
+    [>+++
+    [<<+++++>>-]<-]
+    <++.
+
+    s
+    >
+    >+++++
+    [>+++++
+    [<<+++++>>-]<-]
+    <----------.
+
+    t
+    [>+>+<<-]
+    >>[-<<+>>]<+.
+
+    d
+    >
+    >+++++
+    [>+++++
+    [<<++++>>-]<-]
+    <.
+
+    o
+    >
+    >++++
+    [>+++++
+    [<<++++++>>-]<-]
+    <---------.
+
+    u
+    >
+    >++++
+    [>+++++
+    [<<++++++>>-]<-]
+    <---.
+
+    t
+    >
+    >+++++
+    [>+++++
+    [<<+++++>>-]<-]
+    <---------.
+
+    NULL
+    >
+
+    preparation of the stdin address
+    /
+    >
+    >+++
+    [>+++
+    [<<+++++>>-]<-]
+    <++.
+
+    d
+    >
+    >+++++
+    [>+++++
+    [<<++++>>-]<-]
+    <.
+
+    e
+    >
+    >+++++
+    [>+++++
+    [<<++++>>-]<-]
+    <+.
+
+    v
+    >
+    >++++
+    [>+++++
+    [<<++++++>>-]<-]
+    <--.
+
+    /
+    >
+    >+++
+    [>+++
+    [<<+++++>>-]<-]
+    <++.
+
+    s
+    >
+    >+++++
+    [>+++++
+    [<<+++++>>-]<-]
+    <----------.
+
+    t
+    [>+>+<<-]
+    >>[-<<+>>]<+.
+
+    d
+    >
+    >+++++
+    [>+++++
+    [<<++++>>-]<-]
+    <.
+
+    i
+    >
+    >++++
+    [>+++++
+    [<<+++++>>-]<-]
+    <+++++.
+
+    n
+    >
+    >++
+    [>+++++
+    [<<+++++++++++>>-]<-]
+    <.
+
+    NULL
+    >
+
+    preparation of the uptime file address
+
+    /
+    >
+    >+++
+    [>+++
+    [<<+++++>>-]<-]
+    <++.
+
+    p
+    >
+    >++++
+    [>+++++
+    [<<++++++>>-]<-]
+    <--------.
+
+    r
+    >
+    >+++++
+    [>+++++
+    [<<+++++>>-]<-]
+    <-----------.
+
+    o
+    >
+    >++++
+    [>+++++
+    [<<++++++>>-]<-]
+    <---------.
+
+    c
+    >
+    >+++++
+    [>+++++
+    [<<++++>>-]<-]
+    <-.
+
+    /
+    >
+    >+++
+    [>+++
+    [<<+++++>>-]<-]
+    <++.
+    u
+    >
+    >++++
+    [>+++++
+    [<<++++++>>-]<-]
+    <---.
+
+    p
+    >
+    >++++
+    [>+++++
+    [<<++++++>>-]<-]
+    <--------.
+
+    t
+    >
+    >+++++
+    [>+++++
+    [<<+++++>>-]<-]
+    <---------.
+
+    i
+    >
+    >++++
+    [>+++++
+    [<<+++++>>-]<-]
+    <+++++.
+
+    m
+    >
+    >++
+    [>+++++
+    [<<+++++++++++>>-]<-]
+    <-.
+    e
+    >
+    >+++++
+    [>+++++
+    [<<++++>>-]<-]
+    <+.
+
+    NULL
+    >[-]
+
+    newline
+    >
+    ++++++++++
+    .
+    return to the begining
+    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    [
+    moving to stdin and open it
+    >>>>>>>>>>>>
+    ~~
+    moving to random memory space read 4 times remove
+
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    ,,,,[-]
+
+    return to the begining
+    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<~~
+    moving to stdin
+    >>>>>>>>>>>>
+    moving to uptime
+    >>>>>>>>>>>
+
+    open
+    ~~
+    shift from the file names
+    >>>>>>>>>>>>>>>>>>>>
+
+    save the time (cleaning a bit first)
+    20 to get space
+
+    [-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]>[-]
+
+    <<<<<<<<<<<<<
+    get the data (need loops to stop at the dot)
+
+    first loop looking for the dot
+    +
+    [
+    ,
+
+    >[-]>[-]>[-]<<< clean a bit
+
+    >>+++[>++++[<<++++>>-]<-]<-- create dot character on next
+
+    [-<->] substract it from the previous char
+
+    >>>+<<< increase counter
+
+    < shit to it and check if it 0
+    ]
+
+    >>>>--- decrease the counter to take 2 num before the dot
+
+    reopen the file:
+    return to the begining
+    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    moving to stdin
+    >>>>>>>>>>>>
+    moving to uptime
+    >>>>>>>>>>>
+    open
+    ~~
+    shift memory to the same zone
+    20 to get space
+    >>>>>>>>>>>>>>>>>>>>
+
+    read first characters and clean mem
+    >>>>
+
+    [
+    <,[-]>-
+    ]
+    << go back
+    read it for real
+    ,>,>
+    prepare the 0 ascii value
+    >>+++[>++++[<<++++>>-]<-]<
+    [-<+>]<
+
+    [-<-<->>]remove it
+
+    <<<++++++++++ prepare the 10 multiplicator
+
+    [>[<<+<+>>>-]<<[>>+<<-]>-]>[-]<<[-]< do the multiplication and go on result
+
+    >>>>[-<<<<+>>>>]<<<< add the units to the result to get the total time
+
+    go to current copy current to new
+    <<<<<
+
+    copy result to new cleaning first
+    >[-]<
+    [->+<]
+
+    copy new to current
+    >>>>>[-<<<<<+>>>>>]<<<<<
+
+    do subtraction far enough for the divmod with conservation
+    [->>>>>>+>+<<<<<<<]>>>>>>[-<<<<<<+>>>>>>]
+    <<<<<
+    [->>>>+>+<<<<<]>>>>[-<<<<+>>>>]>
+
+    [->-<]
+
+    <---------------- prepare memory for division 240 bpm division
+
+    [->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d minus n%d n%d n/d
+
+    [-]>[-]>[-]>[-]<<<<< clean a bit then organize rate current previous at the begining of the mem
+    going back to stdout and open
+    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    ~~
+    moving to stdin
+    >>>>>>>>>>>>
+    moving to uptime
+    >>>>>>>>>>>
+    moving to memory space value and print it (still need ascii conversion)
+    >>>>>>>>>>>>>
+
+    >>>>>>>>>>
+
+    to print it need modulos 10 and 100
+    prepare the 100 div
+
+    check further if it s useful first of all copy
+    [->>>>>>>>+>+<<<<<<<<<]>>>>>>>>[-<<<<<<<<+>>>>>>>>]
+    create the 100
+    >>
+    >+++++
+    [>+++++
+    [<<++++>>-]<-]<
+    <<
+
+    check if the value is bigger than 100 put the 0 or 1 on the current position
+    z x y temp0 temp1
+    ^
+    >>>[-]>[-]<<<<[-]
+    >[>>+
+    <[->[-]>+<<]
+    >[-<<<+>>>]
+    >[-<<+>>]
+    <<-<-]
+    clean
+    >[-]>[-]<<<
+    do it only if is not 0
+    [
+    <<<<<<
+
+    >+++++
+    [>+++++
+    [<<++++>>-]<-]
+    <<<
+
+    [->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d minus n%d n%d n/d
+
+    >>>>>>
+
+    +++[>++++[<<++++>>-]<-]<
+
+    [-<+>]<
+
+    . print it
+
+    clean
+    [-]<<[-]<[-]
+
+    copy the modulo
+
+    >>[-<<<+>>>]
+
+    >>>>>
+
+    [-]
+
+    ]
+
+    do the same for 10
+    <<<<<<<
+    <[->>>>>>>+>+<<<<<<<<]>>>>>>>[-<<<<<<<+>>>>>>>]
+    create the 10
+    >>++++++++++<<
+
+    check if the value is bigger than 10 put the 0 or 1 on the current position
+    z x y temp0 temp1
+    ^
+
+    >>>[-]>[-]<<<<[-]
+    >[>>+
+    <[->[-]>+<<]
+    >[-<<<+>>>]
+    >[-<<+>>]
+    <<-<-]
+
+    clean
+    >[-]>[-]<<<
+    do it only if is not 0
+    [
+    [-]
+    <<<<<
+
+    ++++++++++<<
+
+    [->+>-[>+>>]>[+[-<+>]>+>>]<<<<<<] divide result: 0 n d minus n%d n%d n/d
+
+    >>>>>>
+
+    +++[>++++[<<++++>>-]<-]<
+
+    [-<+>]<
+
+    . print it
+
+    clean
+    [-]<<[-]<[-]
+
+    copy the modulo
+    >>[-<<<+>>>]
+
+    >>>>>
+
+    ]
+
+    change the modulo to ascii
+    <<<<<<
+    +++[>++++[<<++++>>-]<-]<
+    [-<+>]<
+    . print it
+    [-]
+
+    clean
+    [-]
+
+    write BMP
+    ++++++++[>++++<-]>.[-]#++++++[>+++++++++++<-]>.[-]++++++++[>++++++++++<-]>.[-][-]+++++++[>+++++++++++<-]>.
+    new line
+    #
+    <<<<<<<<<<<<<<.
+    #
+
+    return to the begining never at 0 infinite loop
+    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+    ]
